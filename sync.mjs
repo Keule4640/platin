@@ -1,4 +1,4 @@
-// Holt deine PlayStation-Trophäen und speichert sie in docs/trophies.json.
+// Holt deine PlayStation-Trophäen und speichert sie in docs/trophies.json (Freunde verschlüsselt).
 // Läuft bei GitHub Actions (siehe .github/workflows/sync.yml).
 // Braucht das Secret PSN_NPSSO. Liest nur, ändert nichts an deinem Konto.
 
