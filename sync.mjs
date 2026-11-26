@@ -202,6 +202,31 @@ if (JSON.stringify(games) === oldSnapshot && JSON.stringify(friends) === JSON.st
 await mkdir("docs", { recursive: true });
 // Freunde nur verschlüsselt speichern – ohne Schlüssel gar nicht
 const friendsEnc = KEY && friends.length ? verschluesseln(friends) : null;
-await writeFile(OUT, JSON.stringify({ syncedAt: new Date().toISOString(), friendsAt, friendsEnc, games }));
-await writeFile("docs/latest.json", JSON.stringify({ at: new Date().toISOString(), fresh }, null, 1));
+
+// ---- Rangliste & Tagesrückblick (ohne Freundesnamen – die Datei ist öffentlich) ----
+const tag = (d) => new Date(d).toLocaleDateString("sv-SE", { timeZone: "Europe/Berlin" });
+const heute = tag(Date.now());
+let rank = null;
+if (gtaGame) {
+  const meinNeu = gtaGame.trophies.filter((t) => t.earned).length;
+  const oldGta = (old.games || []).find((g) => g.id === gtaGame.id);
+  const meinAlt = oldGta ? oldGta.trophies.filter((t) => t.earned).length : meinNeu;
+  const altMap = new Map((old.friends || []).map((f) => [f.id, f.earned.length]));
+  const platz = 1 + friends.filter((f) => f.earned.length > meinNeu).length;
+  const events = [];
+  for (const f of friends) {
+    const fNeu = f.earned.length, fAlt = altMap.has(f.id) ? altMap.get(f.id) : null;
+    if (fAlt === null) continue;
+    if (fAlt <= meinAlt && fNeu > meinNeu) events.push("ueberholt_dich");
+    if (meinAlt <= fAlt && meinNeu > fNeu) events.push("du_ueberholst");
+  }
+  rank = { platz, von: friends.length + 1, events };
+}
+const alleHeute = [];
+for (const g of games) for (const t of g.trophies || [])
+  if (t.earned && t.earnedAt && tag(t.earnedAt) === heute) alleHeute.push({ game: g.name, name: t.name, type: t.type });
+const startGta = (old.summary && old.summary.tag === heute) ? old.summary.startProzent : (gtaGame ? (old.games || []).find((g) => g.id === gtaGame.id)?.progress ?? gtaGame.progress : null);
+const summary = { tag: heute, anzahl: alleHeute.length, trophaeen: alleHeute.slice(0, 5), gtaProzent: gtaGame ? gtaGame.progress : null, startProzent: startGta, rank };
+await writeFile("docs/latest.json", JSON.stringify({ at: new Date().toISOString(), fresh, rank, summary }, null, 1));
+await writeFile(OUT, JSON.stringify({ syncedAt: new Date().toISOString(), friendsAt, friendsEnc, summary, games }));
 console.log(`Neue Trophäen! ${games.length} Spiele gespeichert.`);
