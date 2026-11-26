@@ -1,4 +1,21 @@
 {
- "at": "2026-11-26T10:47:49.728Z",
- "fresh": []
+ "at": "2026-11-26T11:49:35.102Z",
+ "fresh": [],
+ "rank": {
+  "platz": 1,
+  "von": 14,
+  "events": []
+ },
+ "summary": {
+  "tag": "2026-11-26",
+  "anzahl": 0,
+  "trophaeen": [],
+  "gtaProzent": 18,
+  "startProzent": 18,
+  "rank": {
+   "platz": 1,
+   "von": 14,
+   "events": []
+  }
+ }
 }
