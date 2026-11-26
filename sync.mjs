@@ -126,7 +126,7 @@ let friends = old.friends || [];
 let friendsAt = old.friendsAt || null;
 const gtaGame = games.find((g) => /grand theft auto vi\b/i.test(g.name));
 const sechsStunden = 6 * 3600 * 1000;
-if (KEY && gtaGame && (!friendsAt || Date.now() - Date.parse(friendsAt) > sechsStunden)) {
+if (KEY && gtaGame && (!friendsAt || !old.friendsEnc || Date.now() - Date.parse(friendsAt) > sechsStunden)) {
   try {
     const ids = [];
     for (let offset = 0; ; offset += 100) {
