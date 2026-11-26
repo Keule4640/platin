@@ -1,16 +1,12 @@
 {
- "at": "2026-11-26T17:23:00.017Z",
- "fresh": [
-  {
-   "game": "Grand Theft Auto VI",
-   "name": "Der Weg zur Besserung",
-   "type": "bronze"
-  }
- ],
+ "at": "2026-11-26T19:08:58.054Z",
+ "fresh": [],
  "rank": {
-  "platz": 1,
-  "von": 14,
-  "events": []
+  "platz": 2,
+  "von": 15,
+  "events": [
+   "ueberholt_dich"
+  ]
  },
  "summary": {
   "tag": "2026-11-26",
@@ -25,9 +21,11 @@
   "gtaProzent": 20,
   "startProzent": 18,
   "rank": {
-   "platz": 1,
-   "von": 14,
-   "events": []
+   "platz": 2,
+   "von": 15,
+   "events": [
+    "ueberholt_dich"
+   ]
   }
  }
 }
