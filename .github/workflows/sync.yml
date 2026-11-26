@@ -1,0 +1,38 @@
+name: Trophäen abrufen
+
+on:
+  schedule:
+    - cron: "17 * * * *"     # jede Stunde
+  workflow_dispatch: {}       # Knopf "Run workflow" zum sofortigen Abrufen
+  push:                       # startet auch, wenn das Programm geändert wird
+    branches: [main]
+    paths: [sync.mjs, package.json, .github/workflows/sync.yml]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: trophy-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-audit --no-fund
+      - run: node sync.mjs
+        env:
+          PSN_NPSSO: ${{ secrets.PSN_NPSSO }}
+          PLATIN_KEY: ${{ secrets.PLATIN_KEY }}
+      - name: Ergebnis speichern
+        run: |
+          git config user.name "trophy-bot"
+          git config user.email "trophy-bot@users.noreply.github.com"
+          git add -A docs || true
+          git diff --cached --quiet || git commit -m "Trophäen aktualisiert"
+          git push

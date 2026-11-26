@@ -1,0 +1,9 @@
+{
+  "name": "platin",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "psn-api": "2.18.1",
+    "sharp": "0.33.5"
+  }
+}
