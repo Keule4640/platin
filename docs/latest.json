@@ -1,19 +1,31 @@
 {
- "at": "2026-11-27T21:05:31.065Z",
- "fresh": [],
+ "at": "2026-11-27T22:04:34.834Z",
+ "fresh": [
+  {
+   "game": "Grand Theft Auto VI",
+   "name": "Kleinvieh macht auch Mist",
+   "type": "bronze"
+  }
+ ],
  "rank": {
-  "platz": 2,
+  "platz": 1,
   "von": 15,
   "events": []
  },
  "summary": {
   "tag": "2026-11-27",
-  "anzahl": 0,
-  "trophaeen": [],
-  "gtaProzent": 20,
+  "anzahl": 1,
+  "trophaeen": [
+   {
+    "game": "Grand Theft Auto VI",
+    "name": "Kleinvieh macht auch Mist",
+    "type": "bronze"
+   }
+  ],
+  "gtaProzent": 21,
   "startProzent": 20,
   "rank": {
-   "platz": 2,
+   "platz": 1,
    "von": 15,
    "events": []
   }
