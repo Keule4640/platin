@@ -1,5 +1,5 @@
 {
- "at": "2026-11-26T21:04:59.270Z",
+ "at": "2026-11-27T01:29:17.911Z",
  "fresh": [],
  "rank": {
   "platz": 2,
@@ -7,17 +7,11 @@
   "events": []
  },
  "summary": {
-  "tag": "2026-11-26",
-  "anzahl": 1,
-  "trophaeen": [
-   {
-    "game": "Grand Theft Auto VI",
-    "name": "Der Weg zur Besserung",
-    "type": "bronze"
-   }
-  ],
+  "tag": "2026-11-27",
+  "anzahl": 0,
+  "trophaeen": [],
   "gtaProzent": 20,
-  "startProzent": 18,
+  "startProzent": 20,
   "rank": {
    "platz": 2,
    "von": 15,
