@@ -1,12 +1,10 @@
 {
- "at": "2026-11-27T23:59:02.379Z",
+ "at": "2026-11-28T06:09:03.747Z",
  "fresh": [],
  "rank": {
   "platz": 2,
   "von": 15,
-  "events": [
-   "ueberholt_dich"
-  ]
+  "events": []
  },
  "summary": {
   "tag": "2026-11-28",
@@ -17,9 +15,7 @@
   "rank": {
    "platz": 2,
    "von": 15,
-   "events": [
-    "ueberholt_dich"
-   ]
+   "events": []
   }
  }
 }
