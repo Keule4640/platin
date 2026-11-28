@@ -1,10 +1,12 @@
 {
- "at": "2026-11-28T06:09:03.747Z",
+ "at": "2026-11-28T13:08:47.695Z",
  "fresh": [],
  "rank": {
-  "platz": 2,
+  "platz": 3,
   "von": 15,
-  "events": []
+  "events": [
+   "ueberholt_dich"
+  ]
  },
  "summary": {
   "tag": "2026-11-28",
@@ -13,9 +15,11 @@
   "gtaProzent": 21,
   "startProzent": 21,
   "rank": {
-   "platz": 2,
+   "platz": 3,
    "von": 15,
-   "events": []
+   "events": [
+    "ueberholt_dich"
+   ]
   }
  }
 }
